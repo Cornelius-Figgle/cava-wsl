@@ -12,6 +12,9 @@
 cd ~
 
 (cat <<- EOF
+	[user]
+	default = max
+
 	[network]
 	hostname = cava-wsl
 	generateHosts = false
