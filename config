@@ -2,3 +2,10 @@
 method = fifo
 source = /tmp/cava.fifo
 sample_rate = 48000
+
+[color]
+gradient = 1
+gradient_count = 3
+gradient_color_1 = '#1F1F29'
+gradient_color_2 = '#C59DFF'
+gradient_color_3 = '#F16D8C'
