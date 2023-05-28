@@ -24,7 +24,13 @@ cd cava-wsl
 
 mv ~/.profile /tmp  # note: bin off old files
 mv ~/.gitconfig /tmp
-mkdir ~/.config/cava
+
+if [ -d ~/.config/cava ]; then
+    mv ~/.config/cava/config /tmp
+else
+    mkdir ~/.config/cava
+fi
+
 ln -s ~/cava-wsl/.profile ~/.profile
 ln -s ~/cava-wsl/config ~/.config/cava/config
 ln -s ~/cava-wsl/.gitconfig ~/.gitconfig
