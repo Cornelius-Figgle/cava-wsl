@@ -2,9 +2,9 @@
 
 cd ~
 
-apt update
-apt upgrade
-apt install neofetch cava git gh tmux wget
+sudo apt update
+sudo apt upgrade
+sudo apt install neofetch cava git gh tmux wget -y
 wget -O /mnt/d/winscap.exe  https://github.com/quantum5/winscap/releases/latest/download/winscap.exe
 
 gh auth --git-protocol ssh --with-token  # note: this will prompt for auth token
