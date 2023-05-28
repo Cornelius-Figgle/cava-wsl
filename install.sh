@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # preq: wsl --install Debian
+# preq: GH_TOKEN=XXXX
 # note: Debian doesn't come with `wget` by default, so remote doesn't work?
 # note: copy-paste for now :)
 
@@ -18,7 +19,7 @@ sudo apt upgrade -y
 sudo apt install neofetch cava git gh tmux wget -y
 wget -O /mnt/d/winscap.exe  https://github.com/quantum5/winscap/releases/latest/download/winscap.exe
 
-gh auth login --git-protocol https --with-token  # note: this will prompt for auth token
+gh auth login --git-protocol https  # note: this will prompt for auth token
 gh auth setup-git
 git config --global user.email max@fullimage.net  # note: we setup git even tho we will later overwrite the config file
 git config --global user.name Cornelius-Figgle
