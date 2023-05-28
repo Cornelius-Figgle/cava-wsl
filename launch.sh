@@ -7,7 +7,7 @@ tmux set -g status off
 # info: https://github.com/karlstav/cava/issues/339
 tmux send-keys -t cava-display:0.0 "TERM=xterm-256color" ENTER
 
-if [ -f /tmp/cava.fifo ]; then  # note: if no pipe file
+if [ ! -f /tmp/cava.fifo ]; then  # note: if no pipe file
     mkfifo /tmp/cava.fifo
 fi
 
