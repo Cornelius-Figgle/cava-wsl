@@ -16,4 +16,4 @@ dotfiles for a Debian WSL instance that I run `cava` under using [`winscap.exe`]
 - `git`
 - `gh` (sometimes known as `github-cli`)
 - `wget`
-
+- `tmux` (optional)
