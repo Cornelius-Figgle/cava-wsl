@@ -1,6 +1,9 @@
 #!/bin/bash
 
 tmux new -s cava-display -d
+
+# note: cava won't render without this
+# info: https://github.com/karlstav/cava/issues/339
 tmux send-keys -t cava-display:0.0 "TERM=xterm-256color" ENTER
 
 if [ -f /tmp/cava.fifo ]; then  # note: if no pipe file
