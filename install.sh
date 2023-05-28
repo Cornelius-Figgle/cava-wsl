@@ -39,4 +39,4 @@ ln -s ~/cava-wsl/.gitconfig ~/.gitconfig
 	# note: simplified prompt
 	PS1='\w \$'
 EOF
-) | tee ~/.bashrc
+) >> ~/.bashrc
