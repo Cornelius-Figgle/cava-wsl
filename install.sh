@@ -1,9 +1,9 @@
 #!/bin/bash
 
-cd /home/max
+cd ~
 
 sudo apt update
-sudo apt upgrade
+sudo apt upgrade -y
 sudo apt install neofetch cava git gh tmux wget -y
 wget -O /mnt/d/winscap.exe  https://github.com/quantum5/winscap/releases/latest/download/winscap.exe
 
@@ -17,7 +17,7 @@ cd cava-wsl
 
 mv ~/.profile /tmp  # note: bin off old files
 mv ~/.gitconfig /tmp
-mkdir .config/cava
-ln -s /home/max/cava-wsl/.profile /home/max/.profile
-ln -s /home/max/cava-wsl/config /home/max/.config/cava/config
-ln -s /home/max/cava-wsl/.gitconfig /home/max/.gitconfig
+mkdir ~/.config/cava
+ln -s ~/cava-wsl/.profile ~/.profile
+ln -s ~/cava-wsl/config ~/.config/cava/config
+ln -s ~/cava-wsl/.gitconfig ~/.gitconfig
