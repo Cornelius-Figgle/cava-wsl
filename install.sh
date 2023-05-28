@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# wsl --install Debian
+# preq: wsl --install Debian
+# note: Debian doesn't come with `wget` by default, so remote doesn't work?
+# note: copy-paste for now :)
 
 cd ~
 
