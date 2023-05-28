@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~
+cd /home/max
 
 sudo apt update
 sudo apt upgrade
