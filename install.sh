@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # wsl --install Debian
-
+# bash /mnt/c/users/max.harrison/source/projects/cava-wsl/install.sh
 
 cd ~
 
