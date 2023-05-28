@@ -37,6 +37,8 @@ ln -s ~/cava-wsl/.gitconfig ~/.gitconfig
 
 (cat <<- EOF
 	# note: simplified prompt
-	PS1='\w \$'
+	PS1='\w \$ '
 EOF
 ) >> ~/.bashrc
+
+exec bash
