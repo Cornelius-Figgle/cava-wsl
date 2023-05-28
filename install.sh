@@ -17,7 +17,10 @@ EOF
 sudo apt update
 sudo apt upgrade -y
 sudo apt install neofetch cava git gh tmux wget -y
-wget -O /mnt/d/winscap.exe  https://github.com/quantum5/winscap/releases/latest/download/winscap.exe
+
+if [ ! -f /mnt/d/winscap.exe ]; then  # note: if no pipe file
+    wget -O /mnt/d/winscap.exe  https://github.com/quantum5/winscap/releases/latest/download/winscap.exe
+fi
 
 gh auth login --git-protocol https --with-token < ~/token # note: this will prompt for auth token
 gh auth setup-git
