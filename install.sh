@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# wsl --install Debian
+
+
 cd ~
 
 (cat <<- EOF
