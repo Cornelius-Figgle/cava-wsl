@@ -2,6 +2,13 @@
 
 cd ~
 
+(cat <<- EOF
+	[network]
+	hostname = cava-wsl
+	generateHosts = false
+EOF
+) | sudo tee /etc/wsl.conf
+
 sudo apt update
 sudo apt upgrade -y
 sudo apt install neofetch cava git gh tmux wget -y
