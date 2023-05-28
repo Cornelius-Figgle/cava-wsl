@@ -16,7 +16,7 @@ sudo apt upgrade -y
 sudo apt install neofetch cava git gh tmux wget -y
 wget -O /mnt/d/winscap.exe  https://github.com/quantum5/winscap/releases/latest/download/winscap.exe
 
-gh auth --git-protocol ssh --with-token  # note: this will prompt for auth token
+gh auth login --git-protocol ssh --with-token  # note: this will prompt for auth token
 gh auth setup-git
 git config --global user.email max@fullimage.net  # note: we setup git even tho we will later overwrite the config file
 git config --global user.name Cornelius-Figgle
