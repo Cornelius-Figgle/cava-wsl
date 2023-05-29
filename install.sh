@@ -33,11 +33,12 @@ if [ ! -f /mnt/d/winscap.exe ]; then
 fi
 
 # note: authenticate `gh` and `git`
-# note: we setup git even tho we will later overwrite the config file
 gh auth login --git-protocol https --with-token < ~/token # note: this will read auth token from file (not the most secure, but I can't think of a better way of doing it)
 gh auth setup-git
 git config --global user.email max@fullimage.net
 git config --global user.name Cornelius-Figgle
+git config --global init.defaultBranch main
+git config --global pull.rebase false
 
 # note: clone repo with launch scripts & configs
 git clone https://github.com/Cornelius-Figgle/cava-wsl.git
