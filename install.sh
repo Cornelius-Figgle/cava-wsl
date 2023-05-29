@@ -29,7 +29,7 @@ sudo apt install neofetch cava git gh tmux wget -y
 
 # note: download `winscap` if it doesn't already exist
 if [ ! -f /mnt/d/winscap.exe ]; then
-    wget -O /mnt/d/winscap.exe  https://github.com/quantum5/winscap/releases/latest/download/winscap.exe
+	wget -O /mnt/d/winscap.exe  https://github.com/quantum5/winscap/releases/latest/download/winscap.exe
 fi
 
 # note: authenticate `gh` and `git`
@@ -44,11 +44,8 @@ git config --global pull.rebase false
 git clone https://github.com/Cornelius-Figgle/cava-wsl.git
 cd cava-wsl
 
-# note: bin off old files
-mv ~/.gitconfig /tmp
-mkdir ~/.config/cava
-
 # note: symlink config files
+mkdir ~/.config/cava
 ln -s ~/cava-wsl/config ~/.config/cava/config
 
 # note: set bash prompt
