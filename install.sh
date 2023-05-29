@@ -47,8 +47,8 @@ cd cava-wsl
 mv ~/.gitconfig /tmp
 mkdir ~/.config/cava
 
+# note: symlink config files
 ln -s ~/cava-wsl/config ~/.config/cava/config
-ln -s ~/cava-wsl/.gitconfig ~/.gitconfig
 
 # note: set bash prompt
 (cat <<- EOF
