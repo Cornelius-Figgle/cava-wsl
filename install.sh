@@ -48,7 +48,7 @@ EOF
 # note: install programs
 sudo apt update
 sudo apt upgrade -y
-sudo apt install neofetch cava git gh tmux wget -y
+sudo apt install neofetch cava git gh tmux wget cmatrix -y
 
 # note: download `winscap` if it doesn't already exist
 if [ ! -f $winscap_path ]; then
