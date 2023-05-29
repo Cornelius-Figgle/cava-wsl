@@ -5,10 +5,38 @@
 # preq: `wsl --import cava-wsl ./cava-wsl /v/wsl/Debian.tar`
 # preq: `wsl -d cava-wsl -u max bash -c 'cd $HOME; exec bash'`
 
-# preq: `nano ~/token` (paste gh access token)
+# preq: `nano ~/token` (paste `gh` access token)
+
 # note: Debian doesn't come with `wget` by default, so remote doesn't work?
 # note: copy-paste for now :)
 
+# note: config vars :)
+wsl_conf=1
+
+apt_upgrade=1
+apt_installs=1
+
+dwld_winscap=1
+winscap_path=/mnt/d/winscap.exe
+
+gh_auth=1
+token_path=~/token
+remove_token=1
+
+git_setup=1
+git_name=Cornelius-Figgle
+git_email=max@fullimage.net
+git_branch=main
+git_pull_rebase=false
+
+clone_repo=1
+clone_name=~/cava-wsl
+link_cfgs=1
+cava_cfg_path=~/.config/cava/config
+set_prompt=1
+bashrc_path=~/.bashrc
+
+# note: consistent working dir
 cd ~
 
 # note: create `wsl.conf`
@@ -60,5 +88,6 @@ EOF
 rm ~/token
 
 # note: reload shell
+cd ~
 exec bash
 clear
