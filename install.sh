@@ -13,32 +13,21 @@
 # ----------------------------------------------------------------------------
 
 # note: config vars
-wsl_conf=1
+new_hostname="cava-wsl"
+wsl_username="max"
 
-apt_upgrade=1
-apt_installs=1
+winscap_path="/mnt/d/winscap.exe"
 
-dwld_winscap=1
-winscap_path=/mnt/d/winscap.exe
+token_path="~/token"
+remove_token=true
 
-gh_auth=1
-token_path=~/token
-remove_token=1
+git_name="Cornelius-Figgle"
+git_email="max@fullimage.net"
 
-git_setup=1
-git_name=Cornelius-Figgle
-git_email=max@fullimage.net
-git_branch=main
-git_pull_rebase=false
-
-clone_repo=1
-clone_name=~/cava-wsl
-link_cfgs=1
-cava_cfg_path=~/.config/cava/config
-set_prompt=1
-bashrc_path=~/.bashrc
-
-reload_shell=1
+clone_name="~/cava-wsl"
+cava_cfg_path="~/.config/cava/config"
+simplify_prompt=true
+bashrc_path="~/.bashrc"
 
 # ----------------------------------------------------------------------------
 
@@ -48,10 +37,10 @@ cd ~
 # note: create `wsl.conf`
 (cat <<- EOF
 	[user]
-	default = max
+	default = $wsl_username
 
 	[network]
-	hostname = cava-wsl
+	hostname = $new_hostname
 	generateHosts = false
 EOF
 ) | sudo tee /etc/wsl.conf
@@ -62,36 +51,40 @@ sudo apt upgrade -y
 sudo apt install neofetch cava git gh tmux wget -y
 
 # note: download `winscap` if it doesn't already exist
-if [ ! -f /mnt/d/winscap.exe ]; then
-	wget -O /mnt/d/winscap.exe  https://github.com/quantum5/winscap/releases/latest/download/winscap.exe
+if [ ! -f $winscap_path ]; then
+	wget -O $winscap_path  https://github.com/quantum5/winscap/releases/latest/download/winscap.exe
 fi
 
 # note: authenticate `gh` and `git`
-gh auth login --git-protocol https --with-token < ~/token # note: this will read auth token from file (not the most secure, but I can't think of a better way of doing it)
+gh auth login --git-protocol https --with-token < $token_path # note: this will read auth token from file (not the most secure, but I can't think of a better way of doing it)
 gh auth setup-git
-git config --global user.email max@fullimage.net
-git config --global user.name Cornelius-Figgle
+git config --global user.name $git_name
+git config --global user.email $git_email
 git config --global init.defaultBranch main
 git config --global pull.rebase false
 
 # note: clone repo with launch scripts & configs
-git clone https://github.com/Cornelius-Figgle/cava-wsl.git
-cd cava-wsl
+git clone https://github.com/Cornelius-Figgle/cava-wsl.git $clone_name
+cd $clone_name
 
 # note: symlink config files
-mkdir ~/.config/cava
-ln -s ~/cava-wsl/config ~/.config/cava/config
+mkdir $(dirname $cava_cfg_path)
+ln -s $clone_name/$(basename $cava_cfg_path) $cava_cfg_path
 
-# note: set bash prompt
-(cat <<- EOF
-	
-	# note: simplified prompt
-	PS1='\w \$ '
-EOF
-) >> ~/.bashrc
+if $simplify_prompt; then
+	# note: set bash prompt
+	(cat <<- EOF
 
-# note: remove token
-rm ~/token
+		# note: simplified prompt
+		PS1='\w \$ '
+	EOF
+	) >> $bashrc_path
+fi
+
+if $remove_token; then
+	# note: remove token
+	rm $token_path
+fi
 
 # note: reload shell
 cd ~
