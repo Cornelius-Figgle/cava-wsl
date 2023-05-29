@@ -36,6 +36,8 @@ cava_cfg_path=~/.config/cava/config
 set_prompt=1
 bashrc_path=~/.bashrc
 
+reload_shell=1
+
 # note: consistent working dir
 cd ~
 
