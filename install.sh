@@ -11,6 +11,7 @@
 
 cd ~
 
+# note: create `wsl.conf`
 (cat <<- EOF
 	[user]
 	default = max
@@ -21,35 +22,45 @@ cd ~
 EOF
 ) | sudo tee /etc/wsl.conf
 
+# note: install programs
 sudo apt update
 sudo apt upgrade -y
 sudo apt install neofetch cava git gh tmux wget -y
 
-if [ ! -f /mnt/d/winscap.exe ]; then  # note: if no pipe file
+# note: download `winscap` if it doesn't already exist
+if [ ! -f /mnt/d/winscap.exe ]; then
     wget -O /mnt/d/winscap.exe  https://github.com/quantum5/winscap/releases/latest/download/winscap.exe
 fi
 
-gh auth login --git-protocol https --with-token < ~/token # note: this will prompt for auth token
+# note: authenticate `gh` and `git`
+# note: we setup git even tho we will later overwrite the config file
+gh auth login --git-protocol https --with-token < ~/token # note: this will read auth token from file (not the most secure, but I can't think of a better way of doing it)
 gh auth setup-git
-git config --global user.email max@fullimage.net  # note: we setup git even tho we will later overwrite the config file
+git config --global user.email max@fullimage.net
 git config --global user.name Cornelius-Figgle
 
+# note: clone repo with launch scripts & configs
 git clone https://github.com/Cornelius-Figgle/cava-wsl.git
 cd cava-wsl
 
-mv ~/.profile /tmp  # note: bin off old files
+# note: bin off old files
 mv ~/.gitconfig /tmp
 mkdir ~/.config/cava
 
-ln -s ~/cava-wsl/.profile ~/.profile
 ln -s ~/cava-wsl/config ~/.config/cava/config
 ln -s ~/cava-wsl/.gitconfig ~/.gitconfig
 
+# note: set bash prompt
 (cat <<- EOF
+	
 	# note: simplified prompt
 	PS1='\w \$ '
 EOF
 ) >> ~/.bashrc
 
+# note: remove token
+rm ~/token
+
+# note: reload shell
 exec bash
 clear
