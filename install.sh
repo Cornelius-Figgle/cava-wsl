@@ -10,6 +10,8 @@
 # note: Debian doesn't come with `wget` by default, so remote doesn't work?
 # note: copy-paste for now :)
 
+# ----------------------------------------------------------------------------
+
 # note: config vars
 wsl_conf=1
 
@@ -37,6 +39,8 @@ set_prompt=1
 bashrc_path=~/.bashrc
 
 reload_shell=1
+
+# ----------------------------------------------------------------------------
 
 # note: consistent working dir
 cd ~
