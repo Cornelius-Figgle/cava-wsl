@@ -14,7 +14,7 @@
 new_hostname="cava-wsl"
 wsl_username="max"
 
-winscap_path="/mnt/d/winscap.exe"
+winscap_path="/mnt/v/wsl/winscap.exe"
 
 git_name="Cornelius-Figgle"
 git_email="max@fullimage.net"
