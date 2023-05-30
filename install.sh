@@ -1,14 +1,13 @@
 # !/bin/bash
 
 # preq: `wsl --install Debian`
-# preq: `wsl --export Debian V:\wsl\Debain.tar`
-# preq: `wsl --import cava-wsl V:\wsl\cava-wsl V:\wsl\Debian.tar
+# preq: `wsl --export Debian \windows\path\to\Debian.tar`
+# preq: `wsl --import cava-wsl \windows\path\to\cava-wsl \windows\path\to\Debian.tar
 
 # note: Debian doesn't come with `wget` by default, so remote doesn't work?
-# note: clone script to host and execute from there
-
+# note: the solution is to save script to host and execute from there
 # note: line-endings may have to be changed in Windows before execution
-# info: https://unix.stackexchange.com/a/396553/551787
+  # info: https://unix.stackexchange.com/a/396553/551787
 # preq: `wsl -d cava-wsl -u max --cd ~ -e bash /mnt/windows/path/to/cava-wsl/install.sh`
 
 # ----------------------------------------------------------------------------
@@ -54,7 +53,8 @@ if [ ! -f $winscap_path ]; then
 fi
 
 # note: authenticate `gh` and `git`
-gh auth login --git-protocol https --with-token < $(read -sp "GH Auth Token: " token ; echo $token | openssl passwd -1 -stdin) # note: this will prompt for auth token (should be pasted in)
+read -sp "GH Auth Token: " token  # note: this will prompt for auth token (should be pasted in)
+echo $token | gh auth login --git-protocol https --with-token
 gh auth setup-git
 git config --global user.name $git_name
 git config --global user.email $git_email
