@@ -3,7 +3,7 @@
 # preq: `wsl --install Debian`
 # preq: `wsl --export Debian V:\wsl\Debain.tar`
 # preq: `wsl --import cava-wsl V:\wsl\cava-wsl V:\wsl\Debian.tar`
-# preq: `wsl -d cava-wsl -u max --cd ~`
+# preq: `wsl -d cava-wsl -u max --cd ~ -e ~\source\projects\cava-wsl\install.sh`
 
 # note: Debian doesn't come with `wget` by default, so remote doesn't work?
 # note: copy-paste for now :)
