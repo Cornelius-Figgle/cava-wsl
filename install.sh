@@ -2,11 +2,14 @@
 
 # preq: `wsl --install Debian`
 # preq: `wsl --export Debian V:\wsl\Debain.tar`
-# preq: `wsl --import cava-wsl V:\wsl\cava-wsl V:\wsl\Debian.tar`
-# preq: `wsl -d cava-wsl -u max --cd ~ -e ~\source\projects\cava-wsl\install.sh`
+# preq: `wsl --import cava-wsl V:\wsl\cava-wsl V:\wsl\Debian.tar
 
 # note: Debian doesn't come with `wget` by default, so remote doesn't work?
-# note: copy-paste for now :)
+# note: clone script to host and execute from there
+
+# note: line-endings may have to be changed in Windows before execution
+# info: https://unix.stackexchange.com/a/396553/551787
+# preq: `wsl -d cava-wsl -u max --cd ~ -e bash /mnt/windows/path/to/cava-wsl/install.sh`
 
 # ----------------------------------------------------------------------------
 
