@@ -21,10 +21,10 @@ winscap_path="/mnt/v/wsl/winscap.exe"
 git_name="Cornelius-Figgle"
 git_email="max@fullimage.net"
 
-clone_name="~/cava-wsl"
-cava_cfg_path="~/.config/cava/config"
+clone_name="$HOME/cava-wsl"
+cava_cfg_path="$HOME/.config/cava/config"
 simplify_prompt=true
-bashrc_path="~/.bashrc"
+bashrc_path="$HOME/.bashrc"
 
 # ----------------------------------------------------------------------------
 
