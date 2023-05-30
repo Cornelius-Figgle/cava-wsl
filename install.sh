@@ -58,6 +58,7 @@ echo $token | gh auth login --git-protocol https --with-token
 gh auth setup-git
 git config --global user.name $git_name
 git config --global user.email $git_email
+git config --global core.autocrlf input
 git config --global init.defaultBranch main
 git config --global pull.rebase false
 
