@@ -8,7 +8,7 @@
 # note: the solution is to save script to host and execute from there
 # note: line-endings may have to be changed in Windows before execution
   # info: https://unix.stackexchange.com/a/396553/551787
-# preq: `wsl -d cava-wsl -u max --cd ~ -e bash /mnt/windows/path/to/cava-wsl/install.sh`
+# preq: `wsl -d cava-wsl -u wsl_username --cd ~ -e bash /mnt/windows/path/to/cava-wsl/install.sh`
 
 # ----------------------------------------------------------------------------
 
