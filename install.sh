@@ -18,6 +18,9 @@ wsl_username="max"
 
 winscap_path="/mnt/v/wsl/winscap.exe"
 
+secret_path="/mnt/v/.secret_vault"
+secret_pass="supersecretencryptionpassword"
+
 git_name="Cornelius-Figgle"
 git_email="max@fullimage.net"
 
@@ -53,8 +56,7 @@ if [ ! -f $winscap_path ]; then
 fi
 
 # note: authenticate `gh` and `git`
-read -sp "GH Auth Token: " token  # note: this will prompt for auth token (should be pasted in)
-echo $token | gh auth login --git-protocol https --with-token
+cat $secret_path | openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -iter 100000 -salt -pass pass:$secret_pass | gh auth login --git-protocol https --with-token
 gh auth setup-git
 git config --global user.name $git_name
 git config --global user.email $git_email
