@@ -15,8 +15,8 @@ $wsl_password = "wsl"
 $simplify_prompt = $true
 
 
-Invoke-WebRequest -Uri https://github.com/Cornelius-Figgle/cava-wsl/releases/latest/download/Debian-NO_USER.tar -OutFile $env:TEMP\Debian-NO_USER.tar
-wsl --import $wsl_hostname $install_location $env:TEMP\Debian-NO_USER.tar
+Invoke-WebRequest -Uri https://github.com/Cornelius-Figgle/cava-wsl/releases/latest/download/Debian-NO_USER.tar -OutFile "$env:TEMP\Debian-NO_USER.tar"
+wsl --import $wsl_hostname $install_location "$env:TEMP\Debian-NO_USER.tar"
 wsl -d $wsl_hostname -u root useradd --create-home --user-group --groups  adm,dialout,cdrom,floppy,sudo,audio,dip,video,plugdev,netdev --password $wsl_password $wsl_username
 
 # note: WSL config for hostname & default user
@@ -36,8 +36,8 @@ wsl -d $wsl_hostname -u root apt upgrade -y
 wsl -d $wsl_hostname -u root apt install -y git gh openssl cava neofetch
 
 # note: download `winscap` if it doesn't already exist
-if (!($install_location\winscap.exe)) {
-  Invoke-WebRequest -Uri https://github.com/quantum5/winscap/releases/latest/download/winscap.exe -OutFile $install_location\winscap.exe
+if (!("$install_location\winscap.exe")) {
+  Invoke-WebRequest -Uri https://github.com/quantum5/winscap/releases/latest/download/winscap.exe -OutFile "$install_location\winscap.exe"
 }
 
 # note: authenticate `gh` and setup `git`
