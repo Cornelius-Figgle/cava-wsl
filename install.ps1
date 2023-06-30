@@ -1,4 +1,4 @@
-# automated WSL container creation for running `cava` in
+# title: automated WSL container creation for running `cava` in
 
 $install_location = "v:\wsl\cava-wsl"
 
@@ -27,17 +27,18 @@ default = $wsl_username
 hostname = $wsl_hostname
 generateHosts = false
 "@
-wsl -d $wsl_hostname -u root -e $wsl_config > /etc/wsl.conf  # note: we write via WSL to preserve UNIX format
+wsl -d $wsl_hostname -u root $wsl_config > /etc/wsl.conf  # note: we write via WSL to preserve UNIX format
 
-wsl -d $wsl_hostname -u root -e apt update
-wsl -d $wsl_hostname -u root -e apt upgrade -y
-wsl -d $wsl_hostname -u root -e  apt install -y git gh openssl cava neofetch
+wsl -d $wsl_hostname -u root apt update
+wsl -d $wsl_hostname -u root apt upgrade -y
+wsl -d $wsl_hostname -u root apt install -y git gh openssl cava neofetch
 
 Invoke-WebRequest -Uri https://github.com/quantum5/winscap/releases/latest/download/winscap.exe -OutFile $install_location\winscap.exe
 
 if ($use_encrypted_gh_secretkey -eq $true) {
+	# info (reguarding pipes): https://craigloewen-msft.github.io/WSLTipsAndTricks/tip/use-pipe-in-one-line-command.html
 	$encrypted_gh_secretkey = Get-Content $gh_secretkey_location
- 	wsl -d $wsl_hostname -u $wsl_username -e echo $encrypted_gh_secretkey | openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -iter 100000 -salt -pass pass:$gh_secretkey_encryption_pass | gh auth login --git-protocol https --with-token
+	Get-Content $gh_secretkey_location | wsl -d $wsl_hostname -u $wsl_username openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -iter 100000 -salt -pass pass:$gh_secretkey_encryption_pass `| gh auth login --git-protocol https --with-token
 } else {
-	wsl -d $wsl_hostname -u $wsl_username -e bash 
+	Get-Content $gh_secretkey_location | wsl -d $wsl_hostname -u $wsl_username gh auth login --git-protocol https --with-token
 }
