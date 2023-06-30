@@ -14,8 +14,10 @@ $wsl_password = "wsl"
 
 $simplify_prompt = $true
 
-
-Invoke-WebRequest -Uri https://github.com/Cornelius-Figgle/cava-wsl/releases/latest/download/Debian-NO_USER.tar -OutFile "$env:TEMP\Debian-NO_USER.tar"
+# note: download tarball if it doesn't already exist
+if (!("$env:TEMP\Debian-NO_USER.tar")) {
+	Invoke-WebRequest -Uri https://github.com/Cornelius-Figgle/cava-wsl/releases/latest/download/Debian-NO_USER.tar -OutFile "$env:TEMP\Debian-NO_USER.tar"
+}
 wsl --import $wsl_hostname $install_location "$env:TEMP\Debian-NO_USER.tar"
 wsl -d $wsl_hostname -u root useradd --create-home --user-group --groups  adm,dialout,cdrom,floppy,sudo,audio,dip,video,plugdev,netdev --password $wsl_password $wsl_username
 
@@ -28,7 +30,7 @@ default = $wsl_username
 hostname = $wsl_hostname
 generateHosts = false
 "@
-wsl -d $wsl_hostname -u root $wsl_config > /etc/wsl.conf  # note: we write via WSL to preserve UNIX format
+wsl -d $wsl_hostname -u root $wsl_config `> /etc/wsl.conf  # note: we write via WSL to preserve UNIX format
 
 # note: install `git` & `cava`
 wsl -d $wsl_hostname -u root apt update
@@ -63,5 +65,5 @@ wsl -d $wsl_hostname -u $wsl_username ln -s "/home/$wsl_username/$wsl_hostname/c
 
 # note: nicer prompt
 if ($simplify_prompt -eq $true) {
-	wsl -d $wsl_hostname -u $wsl_username echo "PS1='\w \$ '" > "/home/$wsl_username/.bashrc"
+	wsl -d $wsl_hostname -u $wsl_username echo "PS1='\w \$ '" `> "/home/$wsl_username/.bashrc"
 }
