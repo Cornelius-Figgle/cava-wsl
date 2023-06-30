@@ -4,8 +4,8 @@ dotfiles & install scripts for a Debian WSL container that I run `cava` under us
 
 ## Contents:
 
-- `install.ps1` - to be run in a `powershell`/`pwsh` shell, installs dependancies % sets up configs
-- `launch.sh` - used to launch `cava` and `winscap`
+- [`install.ps1`](./install.ps1) - to be run in a `powershell`/`pwsh` shell, installs dependancies % sets up configs
+- [`launch.sh`](./launch.sh) - used to launch `cava` and `winscap`
 
 ## Dependancies:
 
