@@ -43,7 +43,6 @@ if (!("$install_location\winscap.exe")) {
 # note: authenticate `gh` and setup `git`
 if ($use_encrypted_gh_secretkey -eq $true) {
 	# info (reguarding pipes): https://craigloewen-msft.github.io/WSLTipsAndTricks/tip/use-pipe-in-one-line-command.html
-	$encrypted_gh_secretkey = Get-Content $gh_secretkey_location
 	Get-Content $gh_secretkey_location | wsl -d $wsl_hostname -u $wsl_username openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -iter 100000 -salt -pass pass:$gh_secretkey_encryption_pass `| gh auth login --git-protocol https --with-token
 } else {
 	Get-Content $gh_secretkey_location | wsl -d $wsl_hostname -u $wsl_username gh auth login --git-protocol https --with-token
