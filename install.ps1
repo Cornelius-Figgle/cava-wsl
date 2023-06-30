@@ -5,3 +5,4 @@
 
 wsl --import cava-wsl /v/wsl/cava-wsl /v/wsl/Debian-NO_USER.tar
 wsl -d cava-wsl -u root useradd --create-home --user-group --groups  adm,dialout,cdrom,floppy,sudo,audio,dip,video,plugdev,netdev --password "wsl" cava
+wsl -d cava-wsl -u cava --cd ~ -e bash /mnt/windows/path/to/cava-wsl/install.sh
