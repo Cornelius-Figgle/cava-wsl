@@ -2,12 +2,12 @@
 
 dotfiles & install scripts for a Debian WSL container that I run `cava` under using [`winscap.exe`](https://github.com/quantum5/winscap)
 
-## Contents:
+## Contents
 
 - [`install.ps1`](./install.ps1) - to be run in a `powershell`/`pwsh` shell, installs dependancies % sets up configs
 - [`launch.sh`](./launch.sh) - used to launch `cava` and `winscap`
 
-## Dependancies:
+## Dependancies
 
 *these will be installed by `install.ps1`*
 
@@ -16,3 +16,14 @@ dotfiles & install scripts for a Debian WSL container that I run `cava` under us
 - `git`
 - `gh` (sometimes known as `github-cli`)
 - `neofetch` (not technically needed but is installed by `install.ps1` anyway)
+
+## Installation
+
+Please make sure WSL is installed and functional, then:
+
+```pwsh
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time
+iex (iwr https://raw.githubusercontent.com/Cornelius-Figgle/cava-wsl/main/install.ps1).Content
+```
+
+*credit to [SynCap on StackOverflow](https://stackoverflow.com/a/68530475/19860022) and [scoop](https://scoop.sh) for the web script execution code*
