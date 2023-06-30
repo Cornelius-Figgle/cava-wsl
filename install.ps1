@@ -12,7 +12,7 @@ $wsl_hostname = "cava-wsl"
 $wsl_username = "cava"
 $wsl_password = "wsl"
 
-$simplify_prompt = $true
+
 
 # note: download tarball if it doesn't already exist
 if (!("$env:TEMP\Debian-NO_USER.tar")) {
@@ -62,8 +62,3 @@ wsl -d $wsl_hostname -u $wsl_username git clone https://github.com/Cornelius-Fig
 # note: symlink configs for `cava`
 wsl -d $wsl_hostname -u $wsl_username mkdir -p "/home/$wsl_username/.config/cava"
 wsl -d $wsl_hostname -u $wsl_username ln -s "/home/$wsl_username/$wsl_hostname/config" "/home/$wsl_username/.config/cava/config"
-
-# note: nicer prompt
-if ($simplify_prompt -eq $true) {
-	wsl -d $wsl_hostname -u $wsl_username echo "PS1='\w \$ '" `> "/home/$wsl_username/.bashrc"
-}
