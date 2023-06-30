@@ -1,19 +1,19 @@
 # cava-wsl
 
-dotfiles for a Debian WSL instance that I run `cava` under using [`winscap.exe`](https://github.com/quantum5/winscap)
+dotfiles & install scripts for a Debian WSL container that I run `cava` under using [`winscap.exe`](https://github.com/quantum5/winscap)
 
 ## Contents:
 
-- `install.sh` - to be run in a fresh WSL instance to setup `cava` etc
+- `install.ps1` - to be run in a `powershell`/`pwsh` shell, installs dependancies % sets up configs
 - `launch.sh` - used to launch `cava` and `winscap`
 
 ## Dependancies:
 
-*these will be installed by `install.sh`*
+*these will be installed by `install.ps1`*
 
-- `cava`
 - `winscap` (in Windows host)
+- `cava`
 - `git`
 - `gh` (sometimes known as `github-cli`)
-- `wget`
-- `tmux` (optional, `launch.sh` will need to be modified)
+
+- neofetch (not technically needed but is installed by `install.ps1` anyway
