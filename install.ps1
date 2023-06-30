@@ -64,10 +64,5 @@ wsl -d $wsl_hostname -u $wsl_username ln -s "/home/$wsl_username/$wsl_hostname/c
 
 # note: nicer prompt
 if ($simplify_prompt -eq $true) {
-	$prompt_config = @'
-	
-	# note: simplified prompt
-	PS1='\w \$ '
-	'@
-	wsl -d $wsl_hostname -u $wsl_username $prompt_config > "/home/$wsl_username/.bashrc"
+	wsl -d $wsl_hostname -u $wsl_username echo "PS1='\w \$ '" > "/home/$wsl_username/.bashrc"
 }
