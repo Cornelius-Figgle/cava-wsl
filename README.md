@@ -15,5 +15,4 @@ dotfiles & install scripts for a Debian WSL container that I run `cava` under us
 - `cava`
 - `git`
 - `gh` (sometimes known as `github-cli`)
-
-- neofetch (not technically needed but is installed by `install.ps1` anyway
+- `neofetch` (not technically needed but is installed by `install.ps1` anyway
