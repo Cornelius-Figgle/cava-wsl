@@ -13,6 +13,11 @@ $wsl_username = "cava"
 $wsl_password = "wsl"
 
 
+# note: if instance doesn't already exist
+$env:WSL_UTF8 = 1  # info: https://stackoverflow.com/questions/72764797/how-to-ask-wsl-to-check-if-the-distribution-exists-using-bash-and-wsl-exe
+if ( (wsl -l -q | out-string -stream | select-string cava-wsl) ) {
+	exit 2
+}
 
 # note: download tarball if it doesn't already exist
 if (!(Test-Path -Path "$env:TEMP\Debian-NO_USER.tar" -PathType Leaf)) {
