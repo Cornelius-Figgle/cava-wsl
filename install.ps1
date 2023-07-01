@@ -67,3 +67,5 @@ wsl -d $wsl_hostname -u $wsl_username git clone https://github.com/Cornelius-Fig
 # note: symlink configs for `cava`
 wsl -d $wsl_hostname -u $wsl_username mkdir -p "/home/$wsl_username/.config/cava"
 wsl -d $wsl_hostname -u $wsl_username ln -s "/home/$wsl_username/$wsl_hostname/config" "/home/$wsl_username/.config/cava/config"
+wsl -d $wsl_hostname -u $wsl_username mv "/home/$wsl_username/.profile" "/tmp"
+wsl -d $wsl_hostname -u $wsl_username ln -s "/home/$wsl_username/$wsl_hostname/.profile" "/home/$wsl_username/.profile"
