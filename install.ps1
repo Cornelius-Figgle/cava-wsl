@@ -39,7 +39,7 @@ wsl -d $wsl_hostname -u root apt install -y git gh openssl cava neofetch
 
 # note: download `winscap` if it doesn't already exist
 if (!("$install_location\winscap.exe")) {
-  Invoke-WebRequest -Uri https://github.com/quantum5/winscap/releases/latest/download/winscap.exe -OutFile "$install_location\winscap.exe"
+	Invoke-WebRequest -Uri https://github.com/quantum5/winscap/releases/latest/download/winscap.exe -OutFile "$install_location\winscap.exe"
 }
 
 # note: authenticate `gh` and setup `git`
