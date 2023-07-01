@@ -4,8 +4,9 @@
 param (
 	[string]$install_location = "v:\wsl\cava-wsl",
 	
-	[switch]$auth_gh = $true,
-	[switch]$use_encrypted_gh_secretkey = $true,
+	[switch]$skip_gh_auth = $false,
+	[switch]$use_plaintext_gh_secretkey = $false,
+ 
 	[string]$gh_secretkey_location = "v:\.secret_vault",
 	[string]$gh_secretkey_encryption_pass = "supersecretencryptionpassword",
 	[string]$git_name = "Cornelius-Figgle",
@@ -52,13 +53,13 @@ if (!(Test-Path -Path "$install_location\winscap.exe" -PathType Leaf)) {
 }
 
 # note: we need to authenticate `gh` to be able to push back (but not for cloning)
-if ($auth_gh -eq $true) {
+if ($skip_gh_auth -ne $true) {
 	# note: authenticate `gh` and setup `git`
-	if ($use_encrypted_gh_secretkey -eq $true) {
-		# info (reguarding pipes): https://craigloewen-msft.github.io/WSLTipsAndTricks/tip/use-pipe-in-one-line-command.html
-		Get-Content $gh_secretkey_location | wsl -d $wsl_hostname -u $wsl_username openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -iter 100000 -salt -pass pass:$gh_secretkey_encryption_pass `| gh auth login --git-protocol https --with-token
-	} else {
+	if ($use_plaintext_gh_secretkey) {
 		Get-Content $gh_secretkey_location | wsl -d $wsl_hostname -u $wsl_username gh auth login --git-protocol https --with-token
+	} else {
+  		# info (reguarding pipes): https://craigloewen-msft.github.io/WSLTipsAndTricks/tip/use-pipe-in-one-line-command.html
+		Get-Content $gh_secretkey_location | wsl -d $wsl_hostname -u $wsl_username openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -iter 100000 -salt -pass pass:$gh_secretkey_encryption_pass `| gh auth login --git-protocol https --with-token
 	}
 	wsl -d $wsl_hostname -u $wsl_username gh auth setup-git
 	wsl -d $wsl_hostname -u $wsl_username git config --global user.name $git_name
