@@ -13,7 +13,7 @@ $wsl_username = "cava"
 $wsl_password = "wsl"
 
 
-# note: if instance doesn't already exist
+# note: exit if instance already exists
 $env:WSL_UTF8=1  # info: https://stackoverflow.com/questions/72764797/how-to-ask-wsl-to-check-if-the-distribution-exists-using-bash-and-wsl-exe
 if ( (wsl -l -q | out-string -stream | select-string cava-wsl) ) {
 	exit 2
