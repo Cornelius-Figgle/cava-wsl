@@ -30,7 +30,7 @@ default = $wsl_username
 hostname = $wsl_hostname
 generateHosts = false
 "@
-wsl -d $wsl_hostname -u root $wsl_config `> /etc/wsl.conf  # note: we write via WSL to preserve UNIX format
+wsl -d $wsl_hostname -u root echo $wsl_config `> /etc/wsl.conf  # note: we write via WSL to preserve UNIX format
 
 # note: install `git` & `cava`
 wsl -d $wsl_hostname -u root apt update
