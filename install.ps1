@@ -1,17 +1,20 @@
-# title: automated WSL container creation for running `cava` in
+# automated WSL container creation for running `cava` in
 
-$install_location = "v:\wsl\cava-wsl"
-
-$auth_gh = $true
-$use_encrypted_gh_secretkey = $true
-$gh_secretkey_location = "v:\.secret_vault"
-$gh_secretkey_encryption_pass = "supersecretencryptionpassword"
-$git_name = "Cornelius-Figgle"
-$git_email = "max@fullimage.net"
-
-$wsl_hostname = "cava-wsl"
-$wsl_username = "cava"
-$wsl_password = "wsl"
+# note: argument handling
+param (
+	[string]$install_location = "v:\wsl\cava-wsl",
+	
+	[switch]$auth_gh = $true,
+	[switch]$use_encrypted_gh_secretkey = $true,
+	[string]$gh_secretkey_location = "v:\.secret_vault",
+	[string]$gh_secretkey_encryption_pass = "supersecretencryptionpassword",
+	[string]$git_name = "Cornelius-Figgle",
+	[string]$git_email = "max@fullimage.net",
+	
+	[string]$wsl_hostname = "cava-wsl",
+	[string]$wsl_username = "cava",
+	[string]$wsl_password = "wsl"
+)
 
 
 # note: exit if instance already exists
