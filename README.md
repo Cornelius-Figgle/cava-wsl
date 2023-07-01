@@ -24,7 +24,8 @@ Please make sure WSL is installed and functional, then:
 
 ```pwsh
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # Optional: Needed to run a remote script the first time
-iex (iwr https://raw.githubusercontent.com/Cornelius-Figgle/cava-wsl/main/install.ps1).Content
+
+iex "$( (iwr https://raw.githubusercontent.com/Cornelius-Figgle/cava-wsl/main/install.ps1).Content ) -skip_gh_auth"
 ```
 
 *credit to [SynCap on StackOverflow](https://stackoverflow.com/a/68530475/19860022) and [scoop](https://scoop.sh) for the web script execution code*
