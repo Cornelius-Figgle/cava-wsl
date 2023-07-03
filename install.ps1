@@ -2,12 +2,12 @@
 
 # note: argument handling
 param (
-	[string]$install_location = "v:\wsl\cava-wsl",
+	[string]$install_location = "c:\wsl\cava-wsl",
 	
-	[switch]$skip_gh_auth = $false,
+	[switch]$skip_gh_auth = $true,
 	[switch]$use_plaintext_gh_secretkey = $false,
  
-	[string]$gh_secretkey_location = "v:\.secret_vault",
+	[string]$gh_secretkey_location = "c:\.secret_vault",
 	[string]$gh_secretkey_encryption_pass = "supersecretencryptionpassword",
 	[string]$git_name = "Cornelius-Figgle",
 	[string]$git_email = "max@fullimage.net",
