@@ -21,7 +21,7 @@ dotfiles & install scripts for a Debian WSL container that I run `cava` under us
 
 ## Installation
 
-Please make sure WSL is installed and functional, then:
+Please make sure WSL is [installed and functional](https://learn.microsoft.com/en-us/windows/wsl/install), then:
 
 ```pwsh
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser  # optional: Needed to run a remote script the first time
