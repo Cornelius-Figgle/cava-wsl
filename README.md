@@ -32,3 +32,7 @@ wsl -d cava-wsl bash /home/cava/cava-wsl/launch.sh  # start `cava` (assuming def
 ```
 
 *credit to [Mathias R. Jessen on StackOverflow](https://stackoverflow.com/a/68530475/19860022) for the web script execution code*
+
+## Usage
+
+
