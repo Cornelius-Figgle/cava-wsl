@@ -31,4 +31,4 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser  # optional: Needed to run a
 wsl -d cava-wsl bash /home/cava/cava-wsl/launch.sh  # start `cava` (assuming default user info)
 ```
 
-*credit to [Mathias R. Jessen on StackOverflow]([https://stackoverflow.com/a/68530475/19860022](https://stackoverflow.com/a/40958485/19860022)) for the web script execution code*
+*credit to [Mathias R. Jessen on StackOverflow](https://stackoverflow.com/a/68530475/19860022) for the web script execution code*
