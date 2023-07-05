@@ -9,8 +9,8 @@ param (
  
 	[string]$gh_secretkey_location = $( if ($auth_gh) { Read-Host "Enter secret key path" } ),
 	[string]$gh_secretkey_encryption_pass = $( if ($auth_gh) { Read-Host "Enter secret key password" } ),
-	[string]$git_name = $(cmd /c "git config --global user.name || (echo."")"),
-	[string]$git_email = $(cmd /c "git config --global user.email || (echo."")"),
+	[string]$git_name = $(try { git config --global user.name } catch { echo "" }),
+	[string]$git_email = $(try { git config --global user.email } catch { echo "" }),
 	
 	[string]$wsl_hostname = "cava-wsl",
 	[string]$wsl_username = "cava",
