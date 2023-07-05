@@ -2,15 +2,15 @@
 
 # note: argument handling
 param (
-	[string]$install_location = "c:\wsl\cava-wsl",
+	[string]$install_location = "$env:userprofile\cava-wsl",
 	
 	[switch]$skip_gh_auth = $true,
 	[switch]$use_plaintext_gh_secretkey = $false,
  
-	[string]$gh_secretkey_location = "c:\.secret_vault",
-	[string]$gh_secretkey_encryption_pass = "supersecretencryptionpassword",
-	[string]$git_name = "Cornelius-Figgle",
-	[string]$git_email = "max@fullimage.net",
+	[string]$gh_secretkey_location,
+	[string]$gh_secretkey_encryption_pass,
+	[string]$git_name = $(cmd /c "git config --global user.name || (echo."")"),
+	[string]$git_email = $(cmd /c "git config --global user.email || (echo."")"),
 	
 	[string]$wsl_hostname = "cava-wsl",
 	[string]$wsl_username = "cava",
@@ -53,7 +53,7 @@ if (!(Test-Path -Path "$install_location\winscap.exe" -PathType Leaf)) {
 }
 
 # note: we need to authenticate `gh` to be able to push back (but not for cloning)
-if ($skip_gh_auth -ne $true) {
+if ($auth_gh) {
 	# note: authenticate `gh` and setup `git`
 	if ($use_plaintext_gh_secretkey) {
 		Get-Content $gh_secretkey_location | wsl -d $wsl_hostname -u $wsl_username gh auth login --git-protocol https --with-token
