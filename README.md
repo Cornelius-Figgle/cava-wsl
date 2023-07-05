@@ -26,9 +26,9 @@ Please make sure WSL is [installed and functional](https://learn.microsoft.com/e
 ```pwsh
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser  # optional: Needed to run a remote script the first time
 
-iex "$( (iwr https://raw.githubusercontent.com/Cornelius-Figgle/cava-wsl/main/install.ps1).Content ) -skip_gh_auth -install_location `"$env:userprofile\cava-wsl`""
+& $([scriptblock]::Create((New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/Cornelius-Figgle/cava-wsl/main/install.ps1"))) -install_location "$env:userprofile\cava-wsl"
 
 wsl -d cava-wsl bash /home/cava/cava-wsl/launch.sh  # start `cava` (assuming default user info)
 ```
 
-*credit to [SynCap on StackOverflow](https://stackoverflow.com/a/68530475/19860022) and [scoop](https://scoop.sh) for the web script execution code*
+*credit to [Mathias R. Jessen on StackOverflow]([https://stackoverflow.com/a/68530475/19860022](https://stackoverflow.com/a/40958485/19860022)) for the web script execution code*
