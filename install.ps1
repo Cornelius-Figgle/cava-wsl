@@ -4,11 +4,11 @@
 param (
 	[string]$install_location = "$env:userprofile\cava-wsl",
 	
-	[switch]$skip_gh_auth = $true,
+	[switch]$auth_gh = $false,
 	[switch]$use_plaintext_gh_secretkey = $false,
  
-	[string]$gh_secretkey_location,
-	[string]$gh_secretkey_encryption_pass,
+	[string]$gh_secretkey_location = $( if ($auth_gh) { Read-Host "Enter secret key path: " } ),
+	[string]$gh_secretkey_encryption_pass = $( if ($auth_gh) { Read-Host "Enter secret key password: " } ),
 	[string]$git_name = $(cmd /c "git config --global user.name || (echo."")"),
 	[string]$git_email = $(cmd /c "git config --global user.email || (echo."")"),
 	
