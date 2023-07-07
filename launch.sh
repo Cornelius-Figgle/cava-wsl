@@ -1,6 +1,8 @@
 #!/bin/bash
 
-install_location="/mnt/v/wsl/cava-wsl"
+# note: equivalent to `$env:userprofile\cava-wsl`
+# info: https://superuser.com/a/1391349/1727228
+install_location="$(wslpath $(cmd.exe /C "echo | set /p _=%USERPROFILE%"))/cava-wsl"
 
 if [ ! -e /tmp/cava.fifo ]; then  # note: if no pipe file
 	mkfifo /tmp/cava.fifo
