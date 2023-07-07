@@ -1,4 +1,32 @@
-# automated WSL container creation for running `cava` in
+<#
+.SYNOPSIS
+	A script to automate the creation of a WSL instance for running `cava` in
+.DESCRIPTION
+	A script to automate the creation of a Debian WSL instance for running `cava` in (via `Winscap`)
+.PARAMETER install_location
+	Where to import the instance to
+.PARAMETER auth_gh
+	Whether or not to authenticate a GitHub login (via `gh`)
+.PARAMETER use_plaintext_gh_secretkey
+	Whether to use a plaintext secretkey instead of an encrypted one (not recomended)
+ 	Encryption uses `openssl enc -aes-256-cbc -md sha512 -a -d -pbkdf2 -iter 100000 -salt -pass pass:$gh_secretkey_encryption_pass` to decrypt
+.PARAMETER gh_secretkey_location
+	Location of the secretkey for GitHub authentication
+.PARAMETER gh_secretkey_encryption_pass
+	Encryption password for GitHub authentication
+.PARAMETER git_name
+	The name to use when authenticating `git`
+.PARAMETER git_email
+	The email to use when authenticating `git`
+.PARAMETER wsl_hostname
+	The hostname to use for the instance
+.PARAMETER wsl_username
+	The username to use for the instance
+.PARAMETER wsl_password
+	The password to use for the instance
+.LINK
+	https://github.com/Cornelius-Figgle/cava-wsl
+#>
 
 # note: argument handling
 param (
@@ -8,7 +36,7 @@ param (
 	[switch]$use_plaintext_gh_secretkey = $false,
  
 	[string]$gh_secretkey_location = $( if ($auth_gh) { Read-Host "Enter secret key path" } ),
-	[string]$gh_secretkey_encryption_pass = $( if ($auth_gh) { Read-Host "Enter secret key password" } ),
+	[string]$gh_secretkey_encryption_pass = $( if ($auth_gh -and !$use_plaintext_gh_secretkey) { Read-Host "Enter secret key password" } ),
 	[string]$git_name = $(try { git config --global user.name } catch { echo "" }),
 	[string]$git_email = $(try { git config --global user.email } catch { echo "" }),
 	
