@@ -1,6 +1,6 @@
 # cava-wsl
 
-dotfiles & install scripts for a Debian WSL container that I run `cava` under using [`winscap.exe`](https://github.com/quantum5/winscap)
+dotfiles & install scripts for a Debian WSL instance that I run `cava` under using [`winscap.exe`](https://github.com/quantum5/winscap)
 
 ## Contents
 
@@ -32,3 +32,7 @@ wsl -d cava-wsl bash /home/cava/cava-wsl/launch.sh  # start `cava` (assuming def
 ```
 
 *credit to [Mathias R. Jessen on StackOverflow](https://stackoverflow.com/a/68530475/19860022) for the web script execution code*
+
+## Usage
+
+
