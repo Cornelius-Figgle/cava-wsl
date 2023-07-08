@@ -8,8 +8,8 @@ source = /tmp/cava.fifo
 sample_rate = 48000
 
 [output]
-channels = mono
-mono_option = left
+channels = stereo  # mono
+mono_option = average
 reverse = 0
 
 [color]
