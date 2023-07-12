@@ -65,8 +65,8 @@ wsl -d $wsl_hostname -u root apt install -y git cava neofetch
 wsl -d $wsl_hostname -u $wsl_username git clone https://github.com/Cornelius-Figgle/cava-wsl.git "/home/$wsl_username/cava-wsl"
 
 # download `winscap` if it doesn't already exist
-if (!(Test-Path -Path $(wslpath -w "/opt/winscap.exe") -PathType Leaf) -or $force_redownload) {
-	Invoke-WebRequest -Uri https://github.com/quantum5/winscap/releases/latest/download/winscap.exe -OutFile $(wslpath -w "/opt/winscap.exe")
+if (!(Test-Path -Path $(wsl -d $wsl_hostname -u $wsl_username wslpath -w "/opt/winscap.exe") -PathType Leaf) -or $force_redownload) {
+	Invoke-WebRequest -Uri https://github.com/quantum5/winscap/releases/latest/download/winscap.exe -OutFile $(wsl -d $wsl_hostname -u $wsl_username wslpath -w "/opt/winscap.exe")
 }
 
 # symlink configs for `cava`
