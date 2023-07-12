@@ -4,7 +4,8 @@ if [ ! -e /tmp/cava.fifo ]; then  # note: if no pipe file
 	mkfifo /tmp/cava.fifo
 fi
 
-cp ~/.config/cava/config /tmp/cava.conf
+rm /tmp/cava.conf
+cp -L ~/.config/cava/config /tmp/cava.conf
 cat > "/tmp/cava.conf" <<- EOF
 [input]
 method = fifo
