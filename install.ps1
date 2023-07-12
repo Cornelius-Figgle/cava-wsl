@@ -70,7 +70,7 @@ if (!(Test-Path -Path $winscap_path -PathType Leaf) -or $force_redownload) {
 	Invoke-WebRequest -Uri https://github.com/quantum5/winscap/releases/latest/download/winscap.exe -OutFile $winscap_path
 }
 wsl -d $wsl_hostname -u root chmod 755 /opt/winscap.exe
-wsl -d $wsl_hostname -u root chown $wsl_username:$wsl_username /opt/winscap.exe
+wsl -d $wsl_hostname -u root chown $wsl_username\:$wsl_username /opt/winscap.exe
 
 # symlink configs for `cava`
 wsl -d $wsl_hostname -u $wsl_username mkdir -p "/home/$wsl_username/.config/cava"
