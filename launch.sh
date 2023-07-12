@@ -10,7 +10,7 @@ cat > "/tmp/cava.conf" <<- EOF
 method = fifo
 source = /tmp/cava.fifo
 sample_rate = 48000
-EOF 
+EOF
 
 "/opt/winscap.exe" 2 48000 16 > /tmp/cava.fifo &
 cava -p "/tmp/cava.conf"
