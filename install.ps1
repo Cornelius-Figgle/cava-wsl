@@ -72,7 +72,7 @@ wsl -d $wsl_hostname -u $wsl_username git clone https://github.com/Cornelius-Fig
 # symlink configs for `cava`
 wsl -d $wsl_hostname -u $wsl_username mkdir -p "/home/$wsl_username/.config/cava"
 if (($cava_config_location) -and (Test-Path -Path "$cava_config_location" -PathType Leaf)) {  # if the path is valid
-	$cava_config_location = $(wsl -d $wsl_hostname -u $wsl_username wslpath $("'" + $cava_config_location + "'"))
+	$cava_config_location = $(wsl -d $wsl_hostname -u $wsl_username wslpath $("'"+$cava_config_location+"'"))
 } else {
 	$cava_config_location = "/home/$wsl_username/cava-wsl/default_cava_config"  # use our default config
 }
