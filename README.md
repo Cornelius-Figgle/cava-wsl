@@ -16,7 +16,6 @@ dotfiles & install scripts for a Debian WSL instance that I run `cava` under usi
 - `winscap` (in Windows host)
 - `cava`
 - `git`
-- `gh` (sometimes known as `github-cli`)
 - `neofetch` (not technically needed but is installed by `install.ps1` anyway)
 
 ## Installation
@@ -24,11 +23,9 @@ dotfiles & install scripts for a Debian WSL instance that I run `cava` under usi
 Please make sure WSL is [installed and functional](https://learn.microsoft.com/en-us/windows/wsl/install), then:
 
 ```pwsh
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser  # optional: Needed to run a remote script the first time
-
 & $([scriptblock]::Create((New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/Cornelius-Figgle/cava-wsl/main/install.ps1")))
 
-wsl -d cava-wsl bash /home/cava/cava-wsl/launch.sh  # start `cava` (assuming default user info)
+wsl -d cava-wsl bash /home/cava/cava-wsl/launch.sh  # starts `cava` (assuming default user info)
 ```
 
 *credit to [Mathias R. Jessen on StackOverflow](https://stackoverflow.com/a/68530475/19860022) for the web script execution code*
