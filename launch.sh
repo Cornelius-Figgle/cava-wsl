@@ -6,7 +6,7 @@ fi
 
 rm /tmp/cava.conf
 cp -H ~/.config/cava/config /tmp/cava.conf
-cat > "/tmp/cava.conf" <<- EOF
+cat >> "/tmp/cava.conf" <<- EOF
 [input]
 method = fifo
 source = /tmp/cava.fifo
