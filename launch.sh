@@ -13,4 +13,4 @@ sample_rate = 48000
 EOF 
 
 "/opt/winscap.exe" 2 48000 16 > /tmp/cava.fifo &
-cava
+cava -p "/tmp/cava.conf"
