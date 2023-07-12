@@ -15,11 +15,6 @@ reverse = 0
 [color]
 background = black
 foreground = cyan
-# gradient = 1
-# gradient_count = 3
-# gradient_color_1 = '#1F1F29'
-# gradient_color_2 = '#C59DFF'
-# gradient_color_3 = '#F16D8C'
 
 [smoothing]
 noise_reduction = 77
