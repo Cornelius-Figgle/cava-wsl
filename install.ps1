@@ -52,7 +52,7 @@ wsl -d $wsl_hostname -u root echo $wsl_config `> /etc/wsl.conf  # note: we write
 # note: install `git` & `cava`
 wsl -d $wsl_hostname -u root apt update
 wsl -d $wsl_hostname -u root apt upgrade -y
-wsl -d $wsl_hostname -u root apt install -y git gh openssl cava neofetch
+wsl -d $wsl_hostname -u root apt install -y git cava neofetch
 
 # note: download `winscap` if it doesn't already exist
 if (!(Test-Path -Path "$install_location\winscap.exe" -PathType Leaf)) {
