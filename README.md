@@ -16,6 +16,7 @@ dotfiles & install scripts for a Debian WSL instance that I run `cava` under usi
 - `winscap` (in Windows host)
 - `cava`
 - `git`
+- [`crudini`](https://www.pixelbeat.org/programs/crudini/) (for input changing on config file)
 - `neofetch` (not technically needed but is installed by `install.ps1` anyway)
 
 ## Installation
