@@ -6,12 +6,11 @@ fi
 
 rm /tmp/cava.conf
 cp -H ~/.config/cava/config /tmp/cava.conf
-cat >> "/tmp/cava.conf" <<- EOF
+echo "
 [input]
 method = fifo
 source = /tmp/cava.fifo
-sample_rate = 48000
-EOF
+sample_rate = 48000" | crudini --merge /tmp/cava.conf
 
 "/opt/winscap.exe" 2 48000 16 > /tmp/cava.fifo &
 cava -p "/tmp/cava.conf"
