@@ -4,7 +4,7 @@ dotfiles & install scripts for a Debian WSL instance that I run `cava` under usi
 
 ## Contents
 
-- [`install.ps1`](./install.ps1) - to be run in a `powershell`/`pwsh` shell, installs dependancies % sets up configs
+- [`install.ps1`](./install.ps1) - to be run in a `powershell`/`pwsh` shell, installs dependancies & sets up configs
 - [`launch.sh`](./launch.sh) - used to launch `cava` and `winscap`
 - [`default_cava_config`](./default_cava_config) - default configuration file for `cava`
 - [`.profile`](./.profile) - configuration file for `bash` (see [here](https://github.com/microsoft/WSL/issues/2067) for more info)
