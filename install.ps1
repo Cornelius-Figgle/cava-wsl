@@ -59,7 +59,7 @@ wsl -d $wsl_hostname -u root echo $wsl_config `> /etc/wsl.conf  # we write via W
 # install programs into instance
 wsl -d $wsl_hostname -u root apt update
 wsl -d $wsl_hostname -u root apt upgrade -y
-wsl -d $wsl_hostname -u root apt install -y git cava neofetch
+wsl -d $wsl_hostname -u root apt install -y git cava crudini neofetch
 
 # git clone the project files
 wsl -d $wsl_hostname -u $wsl_username git clone https://github.com/Cornelius-Figgle/cava-wsl.git "/home/$wsl_username/cava-wsl"
