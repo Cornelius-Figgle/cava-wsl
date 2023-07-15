@@ -64,11 +64,9 @@ wsl -d $wsl_hostname -u root apt install -y git cava crudini neofetch
 # git clone the project files
 wsl -d $wsl_hostname -u $wsl_username git clone https://github.com/Cornelius-Figgle/cava-wsl.git "/home/$wsl_username/cava-wsl"
 
-# download `winscap` if it doesn't already exist
+# download `winscap` into instance
 $winscap_path = $(wsl -d $wsl_hostname -u $wsl_username wslpath -w "/opt/winscap.exe")
-if (!(Test-Path -Path $winscap_path -PathType Leaf) -or $force_redownload) {
-	Invoke-WebRequest -Uri https://github.com/quantum5/winscap/releases/latest/download/winscap.exe -OutFile $winscap_path
-}
+Invoke-WebRequest -Uri https://github.com/quantum5/winscap/releases/latest/download/winscap.exe -OutFile $winscap_path
 wsl -d $wsl_hostname -u root chmod 755 /opt/winscap.exe
 wsl -d $wsl_hostname -u root chown $wsl_username`:$wsl_username /opt/winscap.exe
 
