@@ -8,7 +8,7 @@
 .PARAMETER cava_config_location
 	Config file to use for `cava`
 .PARAMETER force_redownload
-	Redownload files (initial TAR and `winscap.exe`) instead of using previously downloaded ones
+	Redownload the initial TAR instead of using a previously downloaded one
 .PARAMETER wsl_hostname
 	The hostname to use for the instance
 .PARAMETER wsl_username
